@@ -1,0 +1,52 @@
+.mini-box{
+    padding-left: 40px;
+}
+
+.submit-opstion{
+    margin-top: 10px;
+}
+.submit-opstion input{
+    margin-bottom: 10px;
+    border-radius: 4px;
+    padding: 3px 6px;
+    border: 1px solid rgb(207, 204, 204);
+    outline: none;
+    
+}
+.submit-opstion button{
+    padding: 3px 15px;
+    border-radius: 4px;
+    background-color: #6EB8F1;
+    color: #fff;
+    border: none;
+}
+
+.custom-containerr{
+    padding: 5px 30px;
+   }
+   .footer-text{
+       margin-right: 30px;
+   }
+   .footer-text .big-text {
+       margin-top: 300px;
+       padding: 10px 50px;
+       height: 360px;
+       width: 100px;
+    
+       background-color: #F5F8FA;
+   }
+   .footer-text .big-text span{
+       color: #6EB8F1;
+   }
+
+
+
+
+   @media screen and (max-width: 786px){
+    .footer-text .big-text{
+        padding: 5px 20px;
+        width: 100%;
+        height: 120px;
+        
+    }
+   }

@@ -1,0 +1,359 @@
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    
+}
+
+
+
+body,html{
+   width: 100%;
+   height: 100vh;
+    
+}
+.start-status{
+    height: 100px;
+    width: 100%;
+    padding: 0px 200px;
+    box-sizing: border-box;
+    background: #F1F2F4;
+    
+    
+}
+.start-status p{
+    font-family: sans-serif;
+    font-size: 16px;
+    text-align: justify;
+    color: #8A97A6;
+    
+}
+.start-status p span{
+    color: #0091EA;
+}
+.nav-list{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+    margin-top: -15px;
+    
+}
+.nav-list li{
+    margin: 0;
+    margin: 20px;
+    font-size: 20px;
+    color: #0091EA;
+    
+}
+.nav-list li a{
+    text-decoration: none;
+    text-transform: uppercase;
+       
+}
+#banner img{
+    height: 100px;
+    width: 50%;
+}
+.title-text{
+    padding-left: 50px;
+}
+.sign-in{
+    margin-left: 135px;
+    margin-top: 50px;
+    
+}
+.sign-in input{
+    margin-top: 5px;
+    margin-bottom: 30px;
+    padding-right: 149px;
+    padding-top: 9px;
+    padding-bottom: 9px;
+    border-radius: 10px;
+    border: 1px solid rgb(212, 209, 209);
+    outline: none;
+    
+       
+}
+.sign-in button{
+    padding: 10px 148px;
+    border-radius: 20px;
+    background-color: #DCDFE3;
+    color: #fff;
+    border: none;
+    
+}
+.ancore-link{
+    margin-left: 33px;
+    margin-top: 16px;
+    font-size: 15px;  
+}
+.ancore-link a{
+    text-decoration: none;
+}
+marquee{
+    margin-top: 20px;
+}
+.unorder-list{
+    margin-top: 20px;
+    font-size: 20px;
+}
+.unorder-list li{
+    margin-bottom: 10px;
+    text-align: justify;
+    color: #0091EA;
+}
+.button-list{
+    margin-top: 10PX;
+}
+.button-list button{
+    padding: 10px 148px;
+    border-radius: 30px;
+    background-color: #DCDFE3;
+    color: #fff;
+    border: none;
+    margin-bottom: 20PX;
+}
+.button-list .button1{
+    padding: 10px 70px;
+    background-color: #96111E;
+    transition: 0.5s;
+    border: 1px solid #96111E;
+    position: relative;
+}
+.button-list .button1 a{
+    text-decoration: none;
+    color: #fff;
+}
+.button-list .button1::before{
+    content: '';
+    height: 100%;
+    width: 42px;
+    background-image: url(images/page2-logo.png);
+    background-position: center;
+    background-size: cover;
+    border-radius: 50px 0px 0px 50px;
+    left: 1px;
+    bottom: 0px;
+    position: absolute;
+}
+
+.button-list .button1:hover{
+    background-color: #c40518;
+}
+
+.button-list .button2{
+    padding: 10px 90px;
+    background-color: #3367D6;
+    transition: 0.5s;
+    position: relative;
+    border: 2px solid#3367D6;
+}
+.button-list .button2 a{
+    text-decoration: none;
+    color: #fff;
+}
+.button-list .button2:hover{
+   background-color: #06359b;
+}
+.button-list .button2::before{
+    content: '';
+    height: 100%;
+    width: 42px;
+    background-image: url(images/download.png);
+    background-position: center;
+    background-size: cover;
+    border-radius: 50px 0px 0px 50px;
+    left: 1px;
+    bottom: 0px;
+    position: absolute;
+}
+.button-list .button3{
+    padding: 10px 95px;
+    background-color: #6001D2;
+    transition: 0.5s;
+    position: relative;
+    border: 2px solid#6001D2;
+}
+.button-list .button3 a{
+    text-decoration: none;
+    color: #fff;
+}
+.button-list .button3:hover{
+    background-color: #862bf7;
+}
+.button-list .button3::before{
+    content: '';
+    height: 100%;
+    width: 42px;
+    background-image: url(images/download\ \(1\).png);
+    background-position: center;
+    background-size: cover;
+    border-radius: 50px 0px 0px 50px;
+    left: 2px;
+    bottom: 0px;
+    position: absolute;
+}
+.button2 i{
+    margin-left: -70px;
+}
+#footer{
+    height: 100px;
+    padding: 0px 170px;
+    padding-top: 50px;
+    border-top: 1px solid #E2E5E8;
+    box-sizing: border-box;
+}
+
+.dubble-icon{
+    display: flex;
+    
+}
+.dubble-icon i {
+    margin-left: 10px;
+}
+
+.container{
+    max-width: 1170px;
+    margin: auto;
+
+}
+.row{
+    display: flex;
+    flex-wrap: wrap;
+}
+ul{
+    list-style: none;
+}
+#footer{
+    padding: 70px 0px;
+}
+.footer-col{
+    width: 20%;
+    padding: 0 15px;
+}
+.footer-col li{
+    list-style: none;
+}
+.footer-col li i{
+    color: #b3b4b6;
+}
+.footer-col  li a{
+    font-size: 13px;
+    text-decoration: none;
+    font-family: sans-serif;
+    font-weight: 600;
+    color: #b3b4b6;
+    
+}
+
+
+
+
+/* ----------mediaquary----------*/
+
+
+@media screen and (max-width: 786px) {
+    .start-status {
+        height: 100px;
+        width: 100%;
+        padding: 5px;
+        box-sizing: border-box;
+          
+    }
+    .start-status p{
+        font-size: 8px;
+
+    }
+    .nav-list{
+        margin-top: -10px;
+
+    }
+    .nav-list li{
+        font-size: 12px;
+    }
+    #banner img{
+        
+        width: 100%;
+    }
+    .sign-in{
+        margin-left: 5px;
+        margin-top: 60px;
+
+    }
+    .unorder-list{
+        margin-top: 10px;
+        font-size: 14px;
+        padding-left: 30px;
+    }
+    
+    .unorder-list h4{
+        font-size: 16px;
+    }
+    .footer-col{
+        width: 50%;
+        margin-bottom: 30x;
+    }
+    
+  }  
+  @media screen and (max-width: 432px){
+      .nav-list{
+          margin-top: -30px;
+      }
+     
+      .sign-in{
+          margin-top: 50px;
+          padding-left: 10px;
+        
+          
+      }
+      #banner img{
+        padding-right: 250px;
+        width: 100%;
+        height: 100px;
+        
+    }
+    .title-text{
+        padding-left: 20px;
+    }
+  }
+  @media screen and (max-width: 389px){
+      .button-list{
+          margin-top: 40px;
+      }
+      .button-list .button1{
+        padding: 13px 120px;
+        font-size: 8px;
+    }
+      .button-list .button2{
+        padding: 12px 120px;
+        font-size: 10px;
+    }
+
+      .button-list .button3{
+          padding: 12px 120px;
+          font-size: 10px;
+      }
+      .unorder-list{
+        font-size: 15px;
+    }
+
+  }
+  @media screen and (max-width: 382px){
+      
+  }     
+           
+  
+  .start-status {
+    height: 100px;
+    width: 100%;
+    padding: 5px;
+    box-sizing: border-box;    
+}
+.nav-list{
+    margin-top: -27px;
+}
+
+
+    
