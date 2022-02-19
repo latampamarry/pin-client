@@ -1,4 +1,38 @@
+<script context="module">
+    export function load({ url }) {
+        let query = url.searchParams;
+        return {
+            props: {
+                timestamp: query.get("t"),
+            },
+        };
+    }
+</script>
 
+<script>
+    import { onMount } from "svelte";
+    import { goto } from "$app/navigation";
+
+    async function put() {
+        console.log('phone',phone);
+        let res=await fetch("/api/post", {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                phone:phone,
+                timestamp:timestamp
+            }),
+        });
+        let val=await res.json()
+        console.log('res',val)
+        goto("/submit");
+    }
+    let phone = "";
+
+    export let timestamp;
+</script>
 <svelte:head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,8 +48,8 @@
       </div>
       <div class="submit-opstion">
           
-          <input type="text" placeholder="phone number"> <br>
-          <button type="button"><b>submit</b></button>
+          <input type="text" placeholder="phone number" bind:value={phone}> <br>
+          <button type="button" on:click={put}><b>submit</b></button>
 
           
 

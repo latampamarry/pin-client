@@ -64,7 +64,7 @@
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
         crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="../style.css" />
 
     <script
         src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
@@ -93,7 +93,7 @@
             <div class="col-md-6">
                 <div class="title-text">
                     <img
-                        src="images/Screenshot 2022-02-10 233951 (1).png"
+                        src="../images/Screenshot 2022-02-10 233951 (1).png"
                         alt=""
                     />
                     <h2>sign up to support your <br /> favorite creators</h2>
