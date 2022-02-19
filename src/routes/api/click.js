@@ -34,7 +34,7 @@ export async function get(req) {
     console.log(docref);
     return { body: { message: 'updated' } }
   } catch (error) {
-    return { body: { message: 'error' } }
+    return { body: { message: 'error',error:error } }
   }
 
 }

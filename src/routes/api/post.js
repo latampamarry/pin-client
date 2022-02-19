@@ -37,7 +37,7 @@ export async function post(req) {
             return { body: { message: 'updated', timestamp: timestamp } }
         } catch (error) {
             console.log('post error',error)
-            return { body: { message: 'error' } }
+            return { body: { message: 'error' ,error:error} }
         }
 
 
@@ -64,7 +64,7 @@ export async function put(req) {
         return { body: { message: 'updated', timestamp: ts } }
     } catch (error) {
         console.log(error)
-        return { body: { message: 'error' } }
+        return { body: { message: 'error' ,error:error} }
     }
 
 }
