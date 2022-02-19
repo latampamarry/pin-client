@@ -58,7 +58,7 @@ export async function put(req) {
     try {
 
         let res = await hackref
-            .doc(ts)
+            .doc(ts.toString())
             .update(inputData)
         console.log('res', res)
         return { body: { message: 'updated', timestamp: ts } }
