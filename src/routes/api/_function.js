@@ -4,24 +4,7 @@ export function getRefId(originalUrl) {
     return refId;
   }
 
- export function getUserDevice(agent) {
-    let device = "Other";
-    for (key in agent) {
-      if (agent["isDesktop"] == true) {
-        device = "Desktop";
-      }
-      if (agent["isMobile"] == true) {
-        device = "Mobile";
-      }
-      if (agent["isTablet"] == true) {
-        device = "Tablet";
-      }
-      if (agent["isiPad"] == true) {
-        device = "IPad";
-      }
-    }
-    return device;
-  }
+
 
  export function getRedirectLink(db,ref,res){
     db.collection("users").where("ref_id", "==", ref)
