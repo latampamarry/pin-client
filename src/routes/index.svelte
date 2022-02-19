@@ -18,7 +18,7 @@
     onMount(async () => {
         console.log("hi");
         console.log("ref", ref);
-        let r = await fetch("/api/click?ref=b&id=c");
+        let r = await fetch("/api/click?ref="+ref);
         console.log(r);
         let j = await r.json();
         console.log(j);
