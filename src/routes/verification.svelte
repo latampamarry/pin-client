@@ -76,7 +76,7 @@
                         <p style="margin-top: 10px;">The code you received is good for 30 minutes 
                             It may take the code up to 10 minutes or so to arrive <br> Make sure to check your Spam/Junk/Trash folder</p>
 
-                        <p>if you don't get the code <a href="/phone">click here</a></p>
+                        <p>if you don't get the code <a href={'/phone?t='+timestamp}>click here</a></p>
 
                         
                     </div>
