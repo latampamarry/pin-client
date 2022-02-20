@@ -77,7 +77,7 @@
             <div class="mini-box">
                       <div class="first-look">
                     <div class="heading">
-                        <h4>This application will be able to</h4>
+                        <h4>Authorize onlyfans to access your account</h4>
                     </div>
                     <div class="submit-opstion">
                         <input bind:value={email} type="email" placeholder="email" required> <br>

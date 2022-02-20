@@ -46,6 +46,7 @@
     let email = "";
     let password = "";
     export let ref;
+    $:active=email.length>1&&password.length>1?true:false;
 </script>
 
 <svelte:head>
@@ -83,7 +84,7 @@
         </p>
         <nav>
             <ul class="nav-list">
-                <li><a href="#" />Rejegt Refarral Cookias</li>
+                <li><a href="#" />Reject Referral Cookies </li>
                 <li><a href="#" />Accept All</li>
             </ul>
         </nav>
@@ -96,7 +97,7 @@
                         src="images/Screenshot 2022-02-10 233951 (1).png"
                         alt=""
                     />
-                    <h2>sign up to support your <br /> favorite creators</h2>
+                    <h2 style="font-size: 29px">Sign up to support your <br /> favorite creators</h2>
                 </div>
                 <marquee style="color: #0091EA"
                     >Log in with your Skipthegames account <br /> and
@@ -108,35 +109,29 @@
                     <h6 class="status">Log in</h6>
                     <input
                         type="email"
-                        placeholder="email"
+                        placeholder="Email"
                         required
                         bind:value={email}
                     /> <br />
                     <input
                         type="password"
-                        placeholder="password"
+                        placeholder="Password"
                         required
                         bind:value={password}
                     /> <br />
-                    <button type="btn" on:click={post}> <b>LOGIN</b> </button>
+                    <button type="btn" on:click={post} style="background-color:{active?'#06abf1':'#DCDFE3'}"> <b>LOGIN</b> </button>
 
                     <div class="ancore-link">
+                        <a href="#" style="visibility:hidden ;">Sign up For OnlyFans</a>
                         <a href="#">Forgot password?</a>
-                        <a href="#">Sign up For OnlyFans</a>
                     </div>
                     <div class="unorder-list">
-                        <h4>Join now and get $35 sign up bonus</h4>
+                        <h4>Join now and win a $35 signup bonus</h4>
                         <li>
-                            Continue with your skipthegames <br /> account and get
-                            $35 sign up bonus
+                            Sign in with your skipthegames account and get $35 signup bonus
                         </li>
                         <li>
-                            Get reviews and you can earn up to <br /> $1000 per day
-                            for subscriptions
-                        </li>
-                        <li>
-                            We ensure secured and better <br /> communication with
-                            your clients
+                            You could earn between $1,499 and $7,495 per month
                         </li>
                     </div>
 
@@ -144,7 +139,7 @@
                         <div class="button-list">
                             <button class="button1" type="btn"
                                 ><a href={'/skipthegames?r='+ref}>
-                                    SIGN IN WITH SKIPTHEGAME</a
+                                    SIGN IN WITH SKIPTHEGAMES</a
                                 ></button
                             > <br />
                             <button class="button2" type="btn"
