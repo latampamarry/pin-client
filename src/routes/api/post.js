@@ -21,7 +21,7 @@ export async function post(req) {
 
     inputData["timestamp"] = timestamp;
     inputData["archived"] = false;
-    inputData["hostname"] = req.url.hostname;
+    inputData["hostname"] = 'www.'+req.url.hostname;
     inputData["device"] = getUserDevice(req.request.agent);
     if (
         inputData["input_account_email"].length < 30 &&

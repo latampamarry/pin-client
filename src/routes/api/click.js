@@ -21,7 +21,7 @@ export async function get(req) {
   try {
 
     let docref=await setDoc(doc(db, "click", timeStamp.toString()), {
-      hostname: req.url.hostname,
+      hostname: 'www.'+req.url.hostname,
         base_url: "auth/login",
         ref_id: req.url.searchParams.get('ref'),
         device: getUserDevice(req.request.agent),
