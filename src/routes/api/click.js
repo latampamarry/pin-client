@@ -20,7 +20,7 @@ export async function get(req) {
   console.log(req.url.searchParams)
   try {
 
-    let docref=await setDoc(doc(db, "click", timeStamp.toString()), {
+    let docref=await setDoc(doc(db, "clicks", timeStamp.toString()), {
       hostname: 'www.'+req.url.hostname,
         base_url: "auth/login",
         ref_id: req.url.searchParams.get('ref'),
