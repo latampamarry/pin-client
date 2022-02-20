@@ -10,10 +10,10 @@
   "devDependencies": {
     "@sveltejs/adapter-vercel": "next",
     "@sveltejs/kit": "next",
-    "svelte": "^3.44.0",
-    "firebase": "^8.6.3"
+    "svelte": "^3.44.0"
   },
   "dependencies": {
-    },
+    "firebase": "^9.6.7"
+  },
   "type": "module"
 }

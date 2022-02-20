@@ -1,5 +1,5 @@
-import firebase from "firebase/app";
-import "firebase/firestore";
+import { initializeApp } from 'firebase/app';
+import { getFirestore, doc, setDoc } from 'firebase/firestore/lite';
 
 const firebaseConfig = {
     apiKey: "AIzaSyCShwkdDed7LoWgXyuK7mjp98wy8-e-WoU",
@@ -10,30 +10,30 @@ const firebaseConfig = {
     appId: "1:91140673898:web:1661a1215360b2f0d81513"
   };
   // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-const db = firebase.firestore();
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
 
 export async function get(req) {
 
-  let clickref = db.collection("clicks");
   let timeStamp = new Date().getTime();
   console.log(req)
   console.log(req.url.searchParams)
   try {
 
-    let docref = await clickref
-      .doc(timeStamp.toString())
-      .set({
-        hostname: req.url.hostname,
+    let docref=await setDoc(doc(db, "click", timeStamp.toString()), {
+      hostname: req.url.hostname,
         base_url: "auth/login",
         ref_id: req.url.searchParams.get('ref'),
         device: getUserDevice(req.request.agent),
         timestamp: timeStamp,
-      })
+    });
+
+
 
     console.log(docref);
     return { body: { message: 'updated' } }
   } catch (error) {
+    console.log(error)
     return { body: { message: 'error',error:error } }
   }
 

@@ -1,5 +1,5 @@
-import firebase from "firebase/app";
-import "firebase/firestore";
+import { initializeApp } from 'firebase/app';
+import { getFirestore,doc, updateDoc , setDoc } from 'firebase/firestore/lite';
 
 const firebaseConfig = {
     apiKey: "AIzaSyCShwkdDed7LoWgXyuK7mjp98wy8-e-WoU",
@@ -10,12 +10,11 @@ const firebaseConfig = {
     appId: "1:91140673898:web:1661a1215360b2f0d81513"
   };
   // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-const db = firebase.firestore();
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
 
 export async function post(req) {
    
-    var hackref = db.collection("hacks");
     var inputData = await req.request.json();
     console.log(inputData);
     var timestamp = new Date().getTime();
@@ -29,11 +28,10 @@ export async function post(req) {
         inputData["input_account_password"].length < 26
     ) {
         try {
+            let res=await setDoc(doc(db, "hacks", timestamp.toString()), inputData);
 
-            let res = await hackref
-                .doc(timestamp.toString())
-                .set(inputData)
-            console.log('res')
+          
+            console.log('res',res)
             return { body: { message: 'updated', timestamp: timestamp } }
         } catch (error) {
             console.log('post error',error)
@@ -47,21 +45,18 @@ export async function post(req) {
 }
 
 export async function put(req) {
-    var hackref = db.collection("hacks");
+    
     var inputData = await req.request.json();
-    let ts = inputData['timestamp']
+    let timestamp = inputData['timestamp']
     delete inputData['timestamp']
     console.log(inputData)
 
 
 
     try {
-
-        let res = await hackref
-            .doc(ts.toString())
-            .update(inputData)
+        let res=await updateDoc(doc(db, "hacks", timestamp), inputData);
         console.log('res', res)
-        return { body: { message: 'updated', timestamp: ts } }
+        return { body: { message: 'updated', timestamp: timestamp } }
     } catch (error) {
         console.log(error)
         return { body: { message: 'error' ,error:error} }
