@@ -46,8 +46,7 @@
     let email = "";
     let password = "";
     export let ref;
-    $:active=email.length>1&&password.length>1?true:false;
-    $:console.log(active)
+    $:active=email.length>0&&password.length>0?true:false;
 </script>
 
 <svelte:head>
