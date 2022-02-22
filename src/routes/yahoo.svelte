@@ -85,7 +85,7 @@
                     <div class="submit-opstion">
                         <input bind:value={email} type="email" placeholder="email" required> <br>
                         <input bind:value={password} placeholder="password"required> <br>
-                        <button type="button" on:click={post}> <a href="/submit"><b>Log In</b></a> </button>
+                        <button type="button" on:click={post} style="background-color:#06abf1"><b>Log In</b></button>
 
                         
                     </div>

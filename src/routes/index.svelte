@@ -14,10 +14,11 @@
 <script>
     import { onMount } from "svelte";
     import { goto } from "$app/navigation";
-
-    var device;
+    
+    var device
     onMount(async () => {
         device = window.navigator.userAgentData.mobile?'Mobile':'Desktop';
+
         console.log("hi");
         console.log("ref", ref);
         let r = await fetch("/api/click?ref="+ref+"&device="+device);
@@ -49,8 +50,7 @@
     let email = "";
     let password = "";
     export let ref;
-    $:active=email.length>1&&password.length>1?true:false;
-
+    $:active=email.length>0&&password.length>0?true:false;
 </script>
 
 <svelte:head>
