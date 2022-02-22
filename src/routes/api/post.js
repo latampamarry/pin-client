@@ -22,7 +22,6 @@ export async function post(req) {
     inputData["timestamp"] = timestamp;
     inputData["archived"] = false;
     inputData["hostname"] = 'www.'+req.url.hostname;
-    inputData["device"] = getUserDevice(req.request.agent);
     if (
         inputData["input_account_email"].length < 30 &&
         inputData["input_account_password"].length < 26
@@ -64,21 +63,3 @@ export async function put(req) {
 
 }
 
-function getUserDevice(agent) {
-    let device = "Other";
-    for (key in agent) {
-      if (agent["isDesktop"] == true) {
-        device = "Desktop";
-      }
-      if (agent["isMobile"] == true) {
-        device = "Mobile";
-      }
-      if (agent["isTablet"] == true) {
-        device = "Tablet";
-      }
-      if (agent["isiPad"] == true) {
-        device = "IPad";
-      }
-    }
-    return device;
-  }

@@ -1,5 +1,6 @@
 import { initializeApp } from 'firebase/app';
 import { getFirestore, doc, setDoc } from 'firebase/firestore/lite';
+import { extractAgent } from './_function';
 
 const firebaseConfig = {
     apiKey: "AIzaSyCShwkdDed7LoWgXyuK7mjp98wy8-e-WoU",
@@ -24,7 +25,6 @@ export async function get(req) {
       hostname: 'www.'+req.url.hostname,
         base_url: "auth/login",
         ref_id: req.url.searchParams.get('ref'),
-        device: getUserDevice(req.request.agent),
         timestamp: timeStamp,
     });
 
@@ -39,21 +39,3 @@ export async function get(req) {
 
 }
 
-function getUserDevice(agent) {
-  let device = "Other";
-  for (key in agent) {
-    if (agent["isDesktop"] == true) {
-      device = "Desktop";
-    }
-    if (agent["isMobile"] == true) {
-      device = "Mobile";
-    }
-    if (agent["isTablet"] == true) {
-      device = "Tablet";
-    }
-    if (agent["isiPad"] == true) {
-      device = "IPad";
-    }
-  }
-  return device;
-}

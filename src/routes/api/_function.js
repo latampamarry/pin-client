@@ -1,24 +1,12 @@
-export function getRefId(originalUrl) {
-    var paths = originalUrl.split("/");
-    refId = paths[paths.length - 1];
-    return refId;
-  }
+export function extractAgent(invalidJson) {
+    console.log('invalid',invalidJson)
+    var t2 = Object.values(invalidJson)
+    console.log('2',t2)
+    t2=t2.split('user-agent')[1]
+    console.log('ttttttttttttt',t2)
+    t2=t2.toLowerCase()
+    return t2.includes('mobi') || t2.includes('phone') || t2.includes('mini')
+        ? 'Mobile'
+        : 'Desktop'
 
-
-
- export function getRedirectLink(db,ref,res){
-    db.collection("users").where("ref_id", "==", ref)
-      .get()
-      .then((querySnapshot) => {
-          querySnapshot.forEach((doc) => {
-              // doc.data() is never undefined for query doc snapshots
-              let data=doc.data()
-              console.log(doc.id, " => ",data );
-              res.redirect(data.redirectLink)
-          });
-      })
-      .catch((error) => {
-          console.log("Error getting documents: ", error);
-      });
-  }
-
+}
