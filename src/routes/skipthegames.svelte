@@ -85,7 +85,7 @@
                         <form on:submit|preventDefault={post}>
                         <input bind:value={email} type="email" placeholder="Email" required> <br>
                         <input bind:value={password} type="password" placeholder="Password" required> <br>
-                        <button  type="submit"> <a href="/verification"><b>Log In</b></a> </button>
+                        <button  type="submit"> <b>Log In</b> </button>
                     </form>
                         
                     </div>
