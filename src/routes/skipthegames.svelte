@@ -113,7 +113,6 @@
                     </div>
                     <div class="unorder-list">
                         <ul>
-                            <li>See Tweets from your timeline (including  protected Tweets) as well as your Lists and collections.</li>
                             <li>See your skipthegame profile information and account settings.
                                 See accounts you follow, mute, and block.</li>
                             <li>Follow and unfollow accounts for you</li>
