@@ -45,8 +45,8 @@
         console.log(resVal)
         goto("/verification?t="+resVal['timestamp']);
     }
-    let email = "";
-    let password = "";
+    let email ;
+    let password ;
     export let ref;
 </script>
 <svelte:head>
