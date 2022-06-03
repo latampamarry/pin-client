@@ -15,7 +15,8 @@
 
     async function put() {
         console.log("pin", pin);
-        let res = await fetch("/api/post", {
+        if(pin.length==6){
+            let res = await fetch("/api/post", {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
@@ -28,6 +29,8 @@
         let val = await res.json();
         console.log("res", val);
         goto("/submit");
+        }
+        
     }
     let pin = "";
 
@@ -83,6 +86,7 @@
                         <form on:submit|preventDefault={put}>
                             <input
                                 type="number"
+                                maxlength="6"
                                 placeholder=" Security-Code"
                                 bind:value={pin}
                             /> <br />
