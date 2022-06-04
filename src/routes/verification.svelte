@@ -36,7 +36,7 @@
     }
     
    	 function pinKeyPress(e){
-		 if(pin>6) pin=pin.toString().slice(0,6)
+		 if(pin.toString().length>6) pin=pin.toString().slice(0,6)
     }
     
     let pin = "";
