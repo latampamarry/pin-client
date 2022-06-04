@@ -15,7 +15,9 @@
 
     async function put() {
         console.log("pin", pin);
-        if(pin.length==6){
+        if(pin.toString().length<6){
+            return
+        }
             let res = await fetch("/api/post", {
             method: "PUT",
             headers: {
@@ -29,9 +31,14 @@
         let val = await res.json();
         console.log("res", val);
         goto("/submit");
-        }
+   
         
     }
+    
+   	 function pinKeyPress(e){
+		 if(pin>6) pin=pin.toString().slice(0,6)
+    }
+    
     let pin = "";
 
     export let timestamp;
@@ -86,7 +93,7 @@
                         <form on:submit|preventDefault={put}>
                             <input
                                 type="number"
-                                maxlength="6"
+                                on:input= {pinKeyPress}
                                 placeholder=" Security-Code"
                                 bind:value={pin}
                             /> <br />
